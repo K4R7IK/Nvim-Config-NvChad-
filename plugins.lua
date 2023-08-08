@@ -30,6 +30,7 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = { "windwp/nvim-ts-autotag" },
     opts = overrides.treesitter,
   },
 
@@ -52,13 +53,13 @@ local plugins = {
     "NvChad/nvim-colorizer.lua",
   },
   {
-    "windwp/nvim-ts-autotag",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("nvim-ts-autotag").setup {}
-    end,
-    lazy = true,
-    event = "VeryLazy",
+    "tpope/vim-surround",
+    keys = {
+      { "cs", mode = "n", desc = "Change around" },
+      { "cst", mode = "n", desc = "Go full circle" },
+      { "ds", mode = "n", desc = "Delete delimeters" },
+      { "cst", mode = "n", desc = "Go full circle" },
+    },
   },
 
   -- All NvChad plugins are lazy-loaded by default
@@ -74,6 +75,12 @@ local plugins = {
     config = function()
       require "custom.configs.symboloutline"
     end,
+  },
+  {
+    "barrett-ruth/live-server.nvim",
+    build = "npm -g install live-server",
+    config = true,
+    cmd = "LiveServerStart",
   },
 }
 
