@@ -7,7 +7,7 @@ local arts = require "custom.arts"
 
 M.ui = {
   theme = "rxyhn",
-  theme_toggle = { "rxyhn" },
+  -- theme_toggle = { "rxyhn" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
