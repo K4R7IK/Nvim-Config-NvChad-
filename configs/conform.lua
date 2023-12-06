@@ -1,3 +1,6 @@
+-- Svelte formatter location
+local prettier_svelte = '/home/k4r7ik/.local/share/nvim/mason/packages/svelte-language-server/node_modules/svelte-language-server/node_modules/prettier-plugin-svelte/plugin.js'
+
 -- custom/conform.lua
 local options = {
 
@@ -5,7 +8,7 @@ local options = {
   formatters = {
     svelte_fmt = {
       command = "prettier",
-      args = { "--plugin", "prettier-plugin-svelte", "$FILENAME" },
+      args = { "--plugin", prettier_svelte, "$FILENAME" },
     },
   },
 

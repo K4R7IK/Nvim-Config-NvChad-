@@ -79,6 +79,42 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
+  --------------Copilot------------------------
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    cmd = "Copilot",
+    config = function()
+      require "custom.configs.copilot"
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require "custom.configs.copilot_cmp"
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = {
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+        { name = "copilot" },
+      },
+    },
+  },
 }
 
 return plugins
