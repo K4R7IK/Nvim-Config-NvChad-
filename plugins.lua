@@ -2,9 +2,6 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
-
-  -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -12,8 +9,6 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
-
-  -- override plugin configs
   {
     "williamboman/mason.nvim",
     opts = overrides.mason,
@@ -29,8 +24,6 @@ local plugins = {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
-
-  -- Install a plugin
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -38,24 +31,9 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
-  -- To make a plugin not be loaded
   {
     "NvChad/nvim-colorizer.lua",
   },
-  {
-    "tpope/vim-surround",
-    keys = {
-      { "cs", mode = "n", desc = "Change around" },
-      { "cst", mode = "n", desc = "Go full circle" },
-      { "ds", mode = "n", desc = "Delete delimeters" },
-      { "cst", mode = "n", desc = "Go full circle" },
-    },
-  },
-
-  -- All NvChad plugins are lazy-loaded by default
-  -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
-  -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example
   {
     "mg979/vim-visual-multi",
     lazy = false,
@@ -78,6 +56,17 @@ local plugins = {
     config = function()
       require "custom.configs.conform"
     end,
+  },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {
+      disable_filetypes = { "NvimTree", "dashboard", "packer", "qf", "lazy", "mason", "netrw" },
+      showmode = false,
+      cmdheight = 2,
+    },
+    cmd = "Hardtime",
+    event = "BufEnter",
   },
   --------------Copilot------------------------
   {
@@ -114,6 +103,50 @@ local plugins = {
         { name = "copilot" },
       },
     },
+  },
+  {
+    "echasnovski/mini.surround",
+    config = function()
+      require("mini.surround").setup {
+        mappings = {
+          add = "gza", -- Add surrounding in Normal and Visual modes
+          delete = "gzd", -- Delete surrounding
+          find = "gzf", -- Find surrounding (to the right)
+          find_left = "gzF", -- Find surrounding (to the left)
+          highlight = "gzh", -- Highlight surrounding
+          replace = "gzr", -- Replace surrounding
+          update_n_lines = "gzn", -- Update `n_lines`
+        },
+      }
+    end,
+    event = "VeryLazy",
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = overrides.noice,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "echasnovski/mini.indentscope",
+    version = "*",
+    config = function()
+      require("mini.indentscope").setup {
+        symbol = "│",
+      }
+    end,
+    event = "BufRead",
+  },
+  {
+    "echasnovski/mini.animate",
+    version = "*",
+    config = function()
+      require("mini.animate").setup {}
+    end,
+    event = "VeryLazy"
   },
 }
 
