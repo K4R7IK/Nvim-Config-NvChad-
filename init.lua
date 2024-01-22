@@ -5,3 +5,5 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+local opt = vim.opt
+opt.relativenumber = true
