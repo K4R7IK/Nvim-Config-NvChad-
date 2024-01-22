@@ -11,13 +11,13 @@ M.ui = {
 
   hl_override = highlights.override,
   hl_add = highlights.add,
-  transparency = true,
+  transparency = false,
   nvdash = {
     load_on_startup = true,
     header = arts,
   },
   statusline = {
-    theme = "minimal",
+    theme = "vscode_colored",
   },
   tabufline = {
     overriden_modules = function(modules)

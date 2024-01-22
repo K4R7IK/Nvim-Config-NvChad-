@@ -3,8 +3,8 @@ local M = {}
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<leader>s"] = { "<cmd> SymbolsOutline <CR>", "Symbol Table" },
+    ["<leader>q"] = { "<cmd> q! <CR>", "Quit"},
     ["<leader>fm"] = {
       function()
         require("conform").format()
