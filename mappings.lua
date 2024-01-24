@@ -11,6 +11,7 @@ M.general = {
       end,
       "format with conform",
     },
+    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "LazyGit" },
   },
 }
 
