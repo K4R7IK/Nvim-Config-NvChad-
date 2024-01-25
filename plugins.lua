@@ -65,8 +65,8 @@ local plugins = {
       showmode = false,
       cmdheight = 2,
     },
-    cmd = "Hardtime",
-    event = "BufEnter",
+    cmd = "Hardtime toggle",
+    event = "VeryLazy",
   },
   --------------Copilot------------------------
   {
@@ -124,11 +124,13 @@ local plugins = {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = overrides.noice,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
+    config = function()
+      require "custom.configs.noice"
+    end,
   },
   {
     "echasnovski/mini.indentscope",
@@ -155,6 +157,12 @@ local plugins = {
     },
     cmd = "LazyGit",
   },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require "custom.configs.telescopeui"
+    end,
+  }
 }
 
 return plugins
