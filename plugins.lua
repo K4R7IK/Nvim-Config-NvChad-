@@ -57,17 +57,6 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      disable_filetypes = { "NvimTree", "dashboard", "packer", "qf", "lazy", "mason", "netrw" },
-      showmode = false,
-      cmdheight = 2,
-    },
-    cmd = "Hardtime toggle",
-    event = "VeryLazy",
-  },
   --------------Copilot------------------------
   {
     "zbirenbaum/copilot.lua",
