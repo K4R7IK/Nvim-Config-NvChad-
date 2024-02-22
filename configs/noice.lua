@@ -11,6 +11,13 @@ require("noice").setup {
     signature = {
       enabled = false,
     },
+    message = {
+      view = 'mini'
+    },
+  },
+  messages = {
+    view = 'mini',
+    view_search = false,
   },
   -- you can enable a preset for easier configuration
   presets = {

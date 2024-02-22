@@ -85,11 +85,11 @@ local plugins = {
     opts = {
       sources = {
         { name = "nvim_lsp" },
+        { name = "copilot" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "nvim_lua" },
         { name = "path" },
-        { name = "copilot" },
       },
     },
   },
@@ -168,6 +168,12 @@ local plugins = {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       }
     end,
+  },
+  {
+    "tim-harding/neophyte",
+    tag = "0.2.2",
+    event = "VeryLazy",
+    opts = overrides.neophyte,
   },
 }
 
