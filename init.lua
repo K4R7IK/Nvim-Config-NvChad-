@@ -7,3 +7,13 @@
 -- })
 local opt = vim.opt
 opt.relativenumber = true
+
+-- Copilotchat.nvim
+local enable_providers = {
+  "python3_provider",
+  -- and so on
+}
+for _, plugin in pairs(enable_providers) do
+  vim.g["loaded_" .. plugin] = nil
+  vim.cmd("runtime " .. plugin)
+end

@@ -1,6 +1,9 @@
 ---@type ChadrcConfig
 local M = {}
 
+-- For copilotchat.nvim
+local disabled_plugins = require("plugins.configs.lazy_nvim").performance.rtp.disabled_plugins
+
 -- Path to overriding theme and highlights files
 local highlights = require "custom.highlights"
 local arts = require "custom.arts"
@@ -26,8 +29,19 @@ M.ui = {
   },
 }
 
+M.lazy_nvim = {
+  performance = {
+    rtp = {
+      disabled_plugins = vim.tbl_filter(function(x)
+        return x ~= "rplugin"
+      end, disabled_plugins),
+    },
+  },
+}
+
 M.plugins = "custom.plugins"
 
 -- check core.mappings for table structure
 M.mappings = require "custom.mappings"
+
 return M
