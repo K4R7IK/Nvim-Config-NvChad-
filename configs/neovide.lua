@@ -7,7 +7,7 @@ if vim.g.neovide then
   vim.g.neovide_cursor_animate_in_insert_mode = true
 
   -- Neovide Fonts
-  vim.o.guifont = "Maple Mono"
+  vim.o.guifont = "Maple Mono,Symbols_Nerd_Fonts:h14:b"
 
   -- Settings paddings.
   vim.g.neovide_padding_top = 3
