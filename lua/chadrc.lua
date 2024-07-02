@@ -9,12 +9,12 @@ local highlights = require "highlights"
 local arts = require "arts"
 
 M.ui = {
-  theme = "decay",
-  theme_toggle = { "decay" },
+  theme = "tokyodark",
+  theme_toggle = { "tokyodark" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
-  transparency = true,
+  transparency = flase,
   nvdash = {
     load_on_startup = true,
     header = arts,
