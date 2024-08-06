@@ -1,28 +1,11 @@
 require "nvchad.mappings"
----@type MappingsTable
-local M = {}
 
-M.general = {
-  n = {
-    ["<leader>s"] = { "<cmd> SymbolsOutline <CR>", "Symbol Table" },
-    ["<leader>q"] = { "<cmd> q! <CR>", "Quit" },
-    ["<leader>gg"] = { "<cmd> LazyGit <CR>", "LazyGit" },
-    ["<leader>mt"] = { "<cmd> MarkdownPreviewToggle <CR>", "Markdown Preview" },
-    ["<leader>tt"] = {
-      function()
-        require("base46").toggle_transparency()
-      end,
-      "Toggle transparency",
-    },
-    ["<leader>fm"] = {
-      function()
-        require("conform").format()
-      end,
-      "format with conform",
-    },
-  },
-}
+local map = vim.keymap.set
 
--- more keybinds!
-
-return M
+map("n", "<leader>s", "<cmd>SymbolsOutline<CR>", { desc = "Symbol Table" })
+map("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit" })
+map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "LazyGit" })
+map("n", "<leader>mt", "<cmd>MarkdownPreviewToggle<CR>", { desc = "Markdown Preview" })
+map("n", "<leader>tt", function()
+  require("base46").toggle_transparency()
+end, { desc = "Toggle transparency" })

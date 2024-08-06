@@ -1,20 +1,15 @@
 ---@type ChadrcConfig
 local M = {}
 
--- For copilotchat.nvim
-local disabled_plugins = require("nvchad.configs.lazy_nvim").performance.rtp.disabled_plugins
-
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
 local arts = require "arts"
 
 M.ui = {
-  theme = "tokyodark",
-  theme_toggle = { "tokyodark" },
-
-  hl_override = highlights.override,
-  hl_add = highlights.add,
-  transparency = flase,
+  cmp = {
+    icons = true,
+    lspkind_text = true,
+  },
   nvdash = {
     load_on_startup = true,
     header = arts,
@@ -23,25 +18,31 @@ M.ui = {
     theme = "vscode_colored",
   },
   tabufline = {
-    overriden_modules = function(modules)
-      table.remove(modules, 4)
-    end,
+    order = { "buffers", "tabs" },
   },
-}
-
-M.lazy_nvim = {
-  performance = {
-    rtp = {
-      disabled_plugins = vim.tbl_filter(function(x)
-        return x ~= "rplugin"
-      end, disabled_plugins),
+  term = {
+    term = {
+      winopts = { number = false, relativenumber = false },
+      sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
+      float = {
+        relative = "editor",
+        row = 0.3,
+        col = 0.25,
+        width = 0.5,
+        height = 0.4,
+        border = "single",
+      },
     },
   },
+  lsp = { signature = true },
 }
 
--- M.plugins = "plugins"
-
--- check core.mappings for table structure
--- M.mappings = require "mappings"
+M.base46 = {
+  theme = "rxyhn",
+  theme_toggle = { "rxyhn" },
+  transparency = flase,
+  -- hl_override = highlights.override,
+  -- hl_add = highlights.add,
+}
 
 return M

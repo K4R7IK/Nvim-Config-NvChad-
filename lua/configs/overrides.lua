@@ -34,6 +34,8 @@ M.mason = {
     "typescript-language-server",
     "svelte-language-server",
     "prettier",
+    "typescript-language-server",
+    "javsacript-language-server",
 
     -- c/cpp stuff
     "clangd",

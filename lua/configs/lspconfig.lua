@@ -1,10 +1,22 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local capabilities = require("nvchad.configs.lspconfig").capabilities
-
 local lspconfig = require "lspconfig"
 
+-- For Angular lsp
+local install_path = vim.fn.stdpath "data" .. "/mason/packages/angular-language-server/node_modules"
+local ang = install_path .. "/@angular/language-server/node_modules"
+local cmd = {
+  "ngserver",
+  "--stdio",
+  "--tsProbeLocations",
+  install_path,
+  "--ngProbeLocations",
+  ang,
+}
+
+
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "svelte","tailwindcss","pyright" }
+local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "svelte", "tailwindcss", "pyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -13,7 +25,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 
---
 -- lspconfig.pyright.setup { blabla}
 lspconfig.gopls.setup {
   settings = {
@@ -25,4 +36,13 @@ lspconfig.gopls.setup {
       },
     },
   },
+}
+
+-- Angular setup
+lspconfig.angularls.setup {
+  on_attach = on_attach,
+  cmd = cmd,
+  on_new_config = function(new_config, new_root_dir)
+    new_config.cmd = cmd
+  end,
 }

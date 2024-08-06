@@ -92,23 +92,23 @@ local plugins = {
       },
     },
   },
-  {
-    "echasnovski/mini.surround",
-    config = function()
-      require("mini.surround").setup {
-        mappings = {
-          add = "gza", -- Add surrounding in Normal and Visual modes
-          delete = "gzd", -- Delete surrounding
-          find = "gzf", -- Find surrounding (to the right)
-          find_left = "gzF", -- Find surrounding (to the left)
-          highlight = "gzh", -- Highlight surrounding
-          replace = "gzr", -- Replace surrounding
-          update_n_lines = "gzn", -- Update `n_lines`
-        },
-      }
-    end,
-    event = "VeryLazy",
-  },
+  -- {
+  --   "echasnovski/mini.surround",
+  --   config = function()
+  --     require("mini.surround").setup {
+  --       mappings = {
+  --         add = "gza", -- Add surrounding in Normal and Visual modes
+  --         delete = "gzd", -- Delete surrounding
+  --         find = "gzf", -- Find surrounding (to the right)
+  --         find_left = "gzF", -- Find surrounding (to the left)
+  --         highlight = "gzh", -- Highlight surrounding
+  --         replace = "gzr", -- Replace surrounding
+  --         update_n_lines = "gzn", -- Update `n_lines`
+  --       },
+  --     }
+  --   end,
+  --   event = "VeryLazy",
+  -- },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
@@ -172,9 +172,6 @@ local plugins = {
     "laytan/tailwind-sorter.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
     build = "cd formatter && npm i && npm run build",
-    -- config = function()
-    --   require("tailwind_sorter").setup {}
-    -- end,
     config = true,
     cmd = { "TailwindSort", "TailwindSortOnSaveToggle" },
     ft = { "html", "javascriptreact", "typescriptreact" },
