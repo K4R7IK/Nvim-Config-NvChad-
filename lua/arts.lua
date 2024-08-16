@@ -1040,5 +1040,5 @@ local arts = {
 
 -- math.randomseed(os.time())
 -- M = arts[math.random(1, #arts)]
-M = arts[1]
+M = arts[2]
 return M

@@ -38,8 +38,8 @@ M.ui = {
 }
 
 M.base46 = {
-  theme = "rxyhn",
-  theme_toggle = { "rxyhn" },
+  theme = "yoru",
+  theme_toggle = { "yoru" },
   transparency = flase,
   -- hl_override = highlights.override,
   -- hl_add = highlights.add,
