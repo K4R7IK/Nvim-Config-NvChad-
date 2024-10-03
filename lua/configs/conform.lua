@@ -27,6 +27,7 @@ local options = {
     html = { "prettier" },
     json = { "prettier" },
     jsonc = { "prettier" },
+    prisma = { "prettier" },
   },
 }
 

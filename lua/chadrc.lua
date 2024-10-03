@@ -9,13 +9,12 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-  },
-  nvdash = {
-    load_on_startup = true,
-    header = arts,
+    format_colors = {
+      tailwind = true,
+    },
   },
   statusline = {
-    theme = "vscode_colored",
+    theme = "minimal",
   },
   tabufline = {
     order = { "buffers", "tabs" },
@@ -37,10 +36,14 @@ M.ui = {
   lsp = { signature = true },
 }
 
+M.nvdash = {
+  load_on_startup = true,
+  -- header = arts,
+}
+
 M.base46 = {
   theme = "yoru",
   theme_toggle = { "yoru" },
-  transparency = flase,
   -- hl_override = highlights.override,
   -- hl_add = highlights.add,
 }

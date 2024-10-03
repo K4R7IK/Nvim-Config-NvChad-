@@ -16,7 +16,7 @@ local cmd = {
 
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "svelte", "tailwindcss", "pyright"}
+local servers = { "html", "cssls", "ts_ls", "clangd", "gopls", "svelte", "tailwindcss", "pyright"}
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
